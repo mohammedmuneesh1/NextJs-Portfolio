@@ -7,11 +7,13 @@ body {
 
 
 @theme inline {
-  --breakpoint-3xl: 1932px;
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --breakpoint-3xl: 1032px;
+  /* --color-foreground: var(--foreground); */
+  --font-inter: var(--font-inter);
+  --font-calistoga: var(--font-calistoga);
 }
+
+
 @layer components {
     .custom-layout {
     @apply w-full max-w-[1600px] mx-auto px-5 md:px-10 lg:px-20;
@@ -32,7 +34,6 @@ body {
 shadow-emerald-300/5  absolute inset-0 ;
      }
 };
-
 
 
 

@@ -10,7 +10,7 @@ export const HeroSection = () => {
   return(
     <>
 
-  <div className="w-full h-full max-w-full py-32 md:py-42 3xl:py-60 relative z-0 overflow-hidden">
+  <div className="w-full h-full max-w-full py-32 md:py-42  3xl:py-52   relative z-0 overflow-hidden">
 
    
 
@@ -109,7 +109,15 @@ export const HeroSection = () => {
   style={{filter:"invert(48%) sepia(79%) saturate(500%) hue-rotate(100deg) brightness(45%)",}}
 />
 </HeroOrbit>
+
 <HeroOrbit  size={650} rotation={-5} >
+<Image
+  src={StarIcon} alt="Star" 
+   className="size-20 brightness-0 saturate-100"
+  style={{filter:"invert(48%) sepia(79%) saturate(500%) hue-rotate(100deg) brightness(45%)",}}
+/>
+</HeroOrbit>
+<HeroOrbit  size={250} rotation={300} >
 <Image
   src={StarIcon} alt="Star" 
    className="size-20 brightness-0 saturate-100"

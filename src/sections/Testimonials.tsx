@@ -3,7 +3,10 @@ import memojiAvatar2 from "@/assets/images/memoji-avatar-2.png";
 import memojiAvatar3 from "@/assets/images/memoji-avatar-3.png";
 import memojiAvatar4 from "@/assets/images/memoji-avatar-4.png";
 import memojiAvatar5 from "@/assets/images/memoji-avatar-5.png";
-
+import SectionHeader from "@/components/SectionHeader";
+import Image from "next/image";
+import grainImage from "@/assets/images/grain.jpg"
+import Card from "@/components/Card";
 const testimonials = [
   {
     name: "Alex Turner",
@@ -38,5 +41,61 @@ const testimonials = [
 ];
 
 export const TestimonialsSection = () => {
-  return <div>Testimonials Section</div>;
+  return (
+<section className="max-w-full w-full py-16 md:py-24">
+<div className="custom-layout
+  
+">
+<SectionHeader
+eyebrow="Happy Clients"
+title="What Clients Say about Me"
+description="Don&apos;t just take my word for it. See what my clients have to say
+    about my work."
+/>
+  
+
+<div className="mt-16 lg:mt-24  flex gap-8 overflow-x-clip w-full
+ [mask-image:linear-gradient(to_right,_transparent,_black_10%,_black_90%,_transparent)] px-4
+">
+  {testimonials.map((testimonial) => (
+    <Card
+      key={testimonial.name}
+      className="flex-none w-full max-w-[350px] p-6 md:p-8
+      
+      "
+    >
+      <div className="w-full">
+        <div className="flex gap-4 items-center">
+          <div className="size-20 bg-gray-700 rounded-full overflow-hidden flex-shrink-0">
+            <Image
+              src={testimonial.avatar}
+              alt={testimonial.name}
+              className="size-full object-cover"
+            />
+          </div>
+
+          <div>
+            <div className="font-semibold">
+              {testimonial.name}
+            </div>
+
+            <div className="text-sm text-white/40">
+              {testimonial.position}
+            </div>
+          </div>
+        </div>
+
+        <p className="mt-4 text-sm text-left">
+          {testimonial.text}
+        </p>
+      </div>
+    </Card>
+  ))}
+</div>
+
+</div>
+  </section>
+
+);
 };
+
