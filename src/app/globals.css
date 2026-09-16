@@ -1,5 +1,46 @@
 @import "tailwindcss";
 
+
+body {
+  font-family: var(--font-inter);
+}
+
+
+@theme inline {
+  --breakpoint-3xl: 1932px;
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+@layer components {
+    .custom-layout {
+    @apply w-full max-w-[1600px] mx-auto px-5 md:px-10 lg:px-20;
+     /* @apply w-full  max-w-[1600px] mx-auto px-5 md:px-10 lg:px-20; */
+     }
+     .nav-item{
+      @apply px-4 py-1.5 rounded-full
+       text-white/70
+       text-sm font-semibold 
+        hover:bg-white hover:text-gray-900
+          duration-300 transition ; 
+     }
+
+     .hero-ring{
+      @apply  border-2  top-1/2 left-1/2 -translate-x-1/2
+-translate-y-1/2 rounded-full border-emerald-300/5
+ shadow-[0_0_80px_inset]
+shadow-emerald-300/5  absolute inset-0 ;
+     }
+};
+
+
+
+
+
+
+/*
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -24,3 +65,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+ 
+
+
+*/
