@@ -58,13 +58,17 @@ export const ProjectsSection = () => {
 
 
 <div className="mt-10 md:mt-20 flex flex-col gap-20">
-  {portfolioProjects?.map((val,index) => (
+  {portfolioProjects?.map((val,index:number) => (
  <Card 
  key={index}
- className="pt-8 md:pt-12 px-8 md:px-10"
+ className="pt-8 md:pt-12 px-8 md:px-10 sticky top-16"
+ style={{
+  top:`calc(64px + ${index *40}px)`
+ }}
+
  >
         {/* MAIN GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 text-center  md:items-left">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 text-center  md:items-left ">
 
         {/* ================= LEFT COLUMN ================= */}
         <div className="max-w-full w-full text-left ">
@@ -132,7 +136,7 @@ export const ProjectsSection = () => {
                 justify-center
                 gap-2
                 font-semibold
-                mt-8
+                mt-4
               "
             >
               <span>Visit Live Site</span>

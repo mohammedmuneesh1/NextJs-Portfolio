@@ -7,6 +7,8 @@ import SectionHeader from "@/components/SectionHeader";
 import Image from "next/image";
 import grainImage from "@/assets/images/grain.jpg"
 import Card from "@/components/Card";
+
+//the moving left animation implemented using pure css , check global.css 
 const testimonials = [
   {
     name: "Alex Turner",
@@ -54,43 +56,68 @@ description="Don&apos;t just take my word for it. See what my clients have to sa
 />
   
 
-<div className="mt-16 lg:mt-24  flex gap-8 overflow-x-clip w-full
- [mask-image:linear-gradient(to_right,_transparent,_black_10%,_black_90%,_transparent)] px-4
-">
-  {testimonials.map((testimonial) => (
-    <Card
-      key={testimonial.name}
-      className="flex-none w-full max-w-[350px] p-6 md:p-8
-      
-      "
-    >
-      <div className="w-full">
-        <div className="flex gap-4 items-center">
-          <div className="size-20 bg-gray-700 rounded-full overflow-hidden flex-shrink-0">
-            <Image
-              src={testimonial.avatar}
-              alt={testimonial.name}
-              className="size-full object-cover"
-            />
-          </div>
+<div
+  className="
+    mt-11 lg:mt-20
+    w-full
+    overflow-hidden
+    py-5
+    [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]
+  "
+>
+  <div
+    className="
+      flex
+      w-max
+      gap-8
+      animate-[scroll_35s_linear_infinite]
+      hover:[animation-play-state:paused]
+    "
+  >
+    {[...testimonials, ...testimonials].map((testimonial, index) => (
+      <Card
+        key={`${testimonial.name}-${index}`}
+        className="
+          flex-none
+          w-[350px]
+          p-6
+          md:p-8
+          hover:-rotate-3
+          transition
+          duration-300
+          !overflow-visible
+        "
+      >
+        <div className="w-full">
+          <div className="flex gap-4 items-center">
 
-          <div>
-            <div className="font-semibold">
-              {testimonial.name}
+            <div className="size-20 bg-gray-700 rounded-full overflow-hidden flex-shrink-0">
+              <Image
+                src={testimonial.avatar}
+                alt={testimonial.name}
+                className="size-full object-cover"
+              />
             </div>
 
-            <div className="text-sm text-white/40">
-              {testimonial.position}
+            <div>
+              <div className="font-semibold">
+                {testimonial.name}
+              </div>
+
+              <div className="text-sm text-white/40">
+                {testimonial.position}
+              </div>
             </div>
+
           </div>
+
+          <p className="mt-4 text-sm text-left">
+            {testimonial.text}
+          </p>
         </div>
-
-        <p className="mt-4 text-sm text-left">
-          {testimonial.text}
-        </p>
-      </div>
-    </Card>
-  ))}
+      </Card>
+    ))}
+  </div>
 </div>
 
 </div>

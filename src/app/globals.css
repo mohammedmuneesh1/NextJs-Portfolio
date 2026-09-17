@@ -11,6 +11,7 @@ body {
   /* --color-foreground: var(--foreground); */
   --font-inter: var(--font-inter);
   --font-calistoga: var(--font-calistoga);
+  
 }
 
 
@@ -33,11 +34,48 @@ body {
  shadow-[0_0_80px_inset]
 shadow-emerald-300/5  absolute inset-0 ;
      }
+
 };
 
 
 
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
 
+  to {
+    transform: translateX(calc(-50% - 1rem));
+  }
+}
+
+
+@keyframes scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+/*translateX */
+
+/* Move this element horizontally along the X-axis. */
+
+                /* X axis
+←────────────────────────────────→
+
+       -300    -100    0    +100    +300
+                         ↑
+                       center */
+
+/* translateX() controls movement along this horizontal line. */
+/* Move the entire row 50% of its own width to the LEFT. */
+/* rem is a CSS unit based on the root (html) font size. */
+/* Move left by 50% of the element's width, plus another 16px. */
 
 /*
 

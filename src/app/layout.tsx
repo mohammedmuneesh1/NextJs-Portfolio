@@ -4,6 +4,7 @@ import {Inter, Calistoga} from "next/font/google";
 
 
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -31,7 +32,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
        className="min-h-full flex flex-col
        bg-gray-900 text-white antialiased"
        >
-      {children}
+      {/* {children} */}
+      <SmoothScroll>{children}</SmoothScroll>
        </body>
     </html>
   );

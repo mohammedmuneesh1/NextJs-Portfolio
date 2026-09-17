@@ -1,19 +1,23 @@
-import React from 'react'
+import React, { ComponentPropsWithoutRef } from 'react'
 import { twMerge } from 'tailwind-merge';
 import grainImage from "@/assets/images/grain.jpg"
-interface CardInterface{
-className?:string;
-children:React.ReactNode
-}
-const Card:React.FC<CardInterface> = ({className,children}) => {
+
+
+const Card: React.FC<ComponentPropsWithoutRef<"div">> = ({
+  className,
+  children,
+  ...other
+}) => {
   return (
-   <div
-      className={
-        twMerge(`
+    <div
+      className={twMerge(
+        `
         relative
-        bg-gray-800
+        isolate
         overflow-hidden
         rounded-3xl
+        bg-gray-800
+
         after:content-['']
         after:absolute
         after:inset-0
@@ -21,20 +25,29 @@ const Card:React.FC<CardInterface> = ({className,children}) => {
         after:outline-2
         after:-outline-offset-2
         after:rounded-3xl
-        after:outline-white/20`,
+        after:outline-white/20
+        `,
         className
-        )
-        }
+      )}
+      {...other}
     >
-        <div 
-        className="absolute inset-0 -z-10  opacity-100"
+      <div
+        className="
+          absolute
+          inset-0
+          -z-10
+          opacity-5
+          bg-cover
+          bg-center
+        "
         style={{
-          backgroundImage:`url(${grainImage.src})`
+          backgroundImage: `url(${grainImage.src})`,
         }}
-        />
-  {children}
-      </div>
-  )
-}
+      />
 
-export default Card
+      {children}
+    </div>
+  );
+};
+
+export default Card;

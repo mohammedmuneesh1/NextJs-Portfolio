@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import bookImage from "@/assets/images/book-cover.png";
 import SectionHeader from "@/components/SectionHeader";
@@ -9,6 +10,8 @@ import ChromeIcon from "@/assets/icons/chrome.svg";
 import GithubIcon from "@/assets/icons/github.svg";
 import mapImage from "@/assets/images/map.png"
 import smileEmoji from "@/assets/images/memoji-smile.png"
+import { motion } from "framer-motion";
+import { useRef } from "react";
 
 const tools = [
   {
@@ -76,6 +79,10 @@ const interests = [
 ];
 
  const AboutSection = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+
+
   return (
     <section className=" py-16 md:py-24 ">
       <div className="custom-layout mx-auto">
@@ -151,11 +158,17 @@ const interests = [
               exceptional digital experiences.
             </p>
 
-            <div className="mt-7 grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {tools.map((tool) => (
+            <div className="mt-7 flex gap-4  flex-none 
+            scroll
+             animate-[scroll_10s_linear_infinite]
+             hover:[animation-play-state:paused]
+             transition 
+            ">
+              {[...tools, ...tools].map((tool,index) => (
                 <div
-                  key={tool.title}
+                  key={`${tool.title}-${index}`}
                   className="
+                  shrink-0
                     flex 
                     items-center
                     gap-3
@@ -184,10 +197,55 @@ const interests = [
                 </div>
               ))}
             </div>
+
+{/* MOVE TO RIGHT SIDE  */}
+
+            <div className="mt-7 flex gap-4  flex-none 
+               w-max
+  animate-[scroll-right_10s_linear_infinite]
+  hover:[animation-play-state:paused]
+             transition 
+            ">
+              {[...tools, ...tools].map((tool,index) => (
+                <div
+                  key={`${tool.title}-${index}`}
+                  className="
+                  shrink-0
+                    flex 
+                    items-center
+                    gap-3
+                    rounded-lg
+                    border border-white/10
+                    bg-white/[0.02]
+                    px-4
+                    py-3
+                  "
+                >
+   <Image
+  src={tool.icon}
+  alt={tool.title}
+  width={28}
+  height={28}
+  className="size-7 object-contain"
+  style={{
+    filter:
+      "invert(87%) sepia(44%) saturate(450%) hue-rotate(90deg) brightness(95%) contrast(90%)",
+  }}
+/>
+
+                  <span className="text-sm font-medium text-white/80">
+                    {tool.title}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+
           </div>
 
           {/* ================= BEYOND THE CODE ================= */}
           <div
+          ref={containerRef}
             className="
               md:col-span-3
               h-[270px]
@@ -212,9 +270,19 @@ const interests = [
               Explore my interests and hobbies beyond the digital realm.
             </p>
 
-<div className="relative mt-7 h-48 w-full">
+<div
+  
+ className="relative mt-7 h-48 w-full "
+>
   {interests.map((interest) => (
-    <div
+    <motion.div
+      drag
+      dragConstraints={containerRef}
+      dragElastic={0.2}
+      dragTransition={{
+        bounceStiffness: 600,
+        bounceDamping: 20,
+      }}
       key={interest.label}
       className={`
         absolute
@@ -236,7 +304,7 @@ const interests = [
     >
       <span>{interest.label}</span>
       <span>{interest.emoji}</span>
-    </div>
+    </motion.div>
   ))}
 </div>
           </div>
@@ -264,30 +332,43 @@ const interests = [
             <div className="absolute inset-0 bg-black/10" />
 
             {/* Location marker */}
-            <div
-              className="
-                absolute
-                left-1/2
-                top-1/2
-                -translate-x-1/2
-                -translate-y-1/2
-                size-20
-                rounded-full
-                bg-cyan-300/80
-                border-4
-                border-white/40
-                flex
-                items-center
-                justify-center
-                shadow-[0_0_40px_rgba(34,211,238,0.5)]
-              "
-            >
-              <Image
-              src={smileEmoji}
-              className="size-16"
-              alt="smil Emoji"
-              />
-            </div>
+<div
+  className="
+    left-1/2
+  top-1/2
+  -translate-x-1/2
+  -translate-y-1/2
+  
+    relative
+    size-20
+    rounded-full
+    bg-cyan-300/80
+    border-4
+    border-white/40
+    flex
+    items-center
+    justify-center
+    shadow-[0_0_40px_rgba(34,211,238,0.5)]
+  "
+>
+  {/* Ping ring */}
+  <div
+    className="
+      absolute
+      inset-0
+      rounded-full
+      bg-cyan-300/70
+      animate-ping
+    "
+  />
+
+  {/* Emoji */}
+  <Image
+    src={smileEmoji}
+    className="relative size-16"
+    alt="Smile Emoji"
+  />
+</div>
           </div>
 
         </div>
