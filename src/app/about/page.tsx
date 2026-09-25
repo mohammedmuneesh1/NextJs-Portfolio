@@ -39,6 +39,7 @@ const timeline = [
 	{ year: "2020", label: "First experiments", detail: "Code, visuals, late-night ideas" },
 ];
 
+
 export default function AboutPage() {
 	return (
 		<main className="relative isolate min-h-screen overflow-hidden bg-[#080b12] text-slate-100 selection:bg-cyan-200 selection:text-slate-950">
