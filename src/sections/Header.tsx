@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const Header = () => {
   return (
     <div className="flex justify-center items-center
@@ -12,9 +14,9 @@ export const Header = () => {
         href="#"
          className="nav-item"
         >Projects</a>
-        <a href="#"
+        <Link href="/about"
         className="nav-item"
-        >About</a>
+        >About</Link>
         <a href="#"
         className="nav-item bg-white text-gray-900
          hover:bg-white/70 hover:text-gray-900"
