@@ -144,7 +144,7 @@ export default function AboutPage() {
 				<nav aria-label="Main navigation" className="flex items-center gap-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/55 sm:gap-8">
 					<Link href="/#projects" className="transition hover:text-cyan-100">Work</Link>
 					<Link href="/about" className="text-cyan-100">About</Link>
-					<Link href="/#contact" className="transition hover:text-cyan-100">Contact <span className="ml-1 text-cyan-300">↗</span></Link>
+					<Link href="/contact" className="transition hover:text-cyan-100">Contact <span className="ml-1 text-cyan-300">↗</span></Link>
 				</nav>
 			</header>
 
@@ -162,7 +162,7 @@ export default function AboutPage() {
 							I&apos;m Muneesh, a designer and developer interested in the space between a good idea and the moment it becomes something people want to keep using.
 						</p>
 						<div className="mt-10 flex flex-wrap items-center gap-5">
-							<Link href="/#contact" className="rounded-full bg-cyan-100 px-6 py-3 text-xs font-bold uppercase tracking-[0.16em] text-slate-950 transition hover:bg-white">
+							<Link href="/contact" className="rounded-full bg-cyan-100 px-6 py-3 text-xs font-bold uppercase tracking-[0.16em] text-slate-950 transition hover:bg-white">
 								Start a conversation <span className="ml-2">↗</span>
 							</Link>
 							<span className="text-xs font-medium uppercase tracking-[0.16em] text-white/40">Based in Kerala · Working globally</span>
