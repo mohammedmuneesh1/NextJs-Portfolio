@@ -5,11 +5,90 @@ import Link from "next/link";
 import SignalField from "@/components/SignalField";
 import computerImage from "@/assets/images/memoji-computer.png";
 
-export const metadata: Metadata = {
-	title: "About | Muneesh",
-	description:
-		"A closer look at Muneesh's approach to building thoughtful digital products.",
 
+export const metadata: Metadata = {
+  title: "About | Muneesh",
+  
+  description:
+    "Learn more about Muneesh, a full-stack developer focused on building modern, scalable web applications with React, Next.js, Node.js, TypeScript, and MongoDB.",
+
+  keywords: [
+    "Muneesh",
+    "Muneesh developer",
+    "full stack developer",
+    "web developer",
+    "React developer",
+    "Next.js developer",
+    "Node.js developer",
+    "TypeScript developer",
+    "MERN stack developer",
+  ],
+
+  authors: [
+    {
+      name: "Muneesh",
+      url: "https://muneesh.dev",
+    },
+  ],
+
+  creator: "Muneesh",
+  publisher: "Muneesh",
+
+  alternates: {
+    canonical: "https://muneesh.dev/about",
+  },
+
+  openGraph: {
+    title: "About Muneesh | Full-Stack Developer",
+
+    description:
+      "Discover Muneesh's background, technical skills, development approach, and experience building modern web applications.",
+
+    url: "https://muneesh.dev/about",
+
+    siteName: "Muneesh",
+
+    locale: "en_US",
+
+    type: "profile",
+
+    images: [
+      {
+        url: "https://muneesh.dev/og/about.png",
+        width: 1200,
+        height: 630,
+        alt: "About Muneesh - Full-Stack Developer",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title: "About Muneesh | Full-Stack Developer",
+
+    description:
+      "Learn more about Muneesh, a full-stack developer building modern and scalable web applications.",
+
+    creator: "@yourusername",
+
+    images: [
+      "https://muneesh.dev/og/about.png",
+    ],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
 };
 
 const principles = [

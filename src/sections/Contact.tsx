@@ -39,7 +39,7 @@ export const ContactSection = () => {
 
     {/* Button */}
     <a
-      href="#contact"
+                href="/contact"
       className="
       group
         shrink-0

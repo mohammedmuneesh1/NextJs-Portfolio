@@ -10,17 +10,17 @@ export const Header = () => {
          href="#" 
          className="nav-item"
          >Home</a>
-        <a 
-        href="#"
+        <Link 
+        href="#projects"
          className="nav-item"
-        >Projects</a>
+        >Projects</Link>
         <Link href="/about"
         className="nav-item"
         >About</Link>
-        <a href="#"
-        className="nav-item bg-white text-gray-900
-         hover:bg-white/70 hover:text-gray-900"
-        >Contacts</a>
+            <Link href="/contact"
+            className="nav-item bg-white text-gray-900
+             hover:bg-white/70 hover:text-gray-900"
+            >Contacts</Link>
       </nav>
     </div>
   );
